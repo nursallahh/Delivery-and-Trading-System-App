@@ -16,3 +16,10 @@ Our application provides these features ; Creating and managing your own shop in
 This is a teamwork project and we have developed this project by taking this serious even if it has been the Introduction to Software Engineering course. 
 
 [Click here for the pdf file explaining our project in more detail.](https://github.com/YunuSezer/Calendar-App/blob/main/calender_reminder_app.pdf)
+
+
+
+## Team Members
+- [Çağrı Komaç](https://github.com/abdulsametkoccaga) - B2305.090211
+- [Fatih Savran](https://github.com/BedirhanDincer1) - B2305.090143
+- [Nursallah Soysal](https://github.com/ErdemDogan55) - B2405.090133
