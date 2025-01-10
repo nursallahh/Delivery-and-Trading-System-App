@@ -28,7 +28,7 @@ This is a teamwork project and we have developed this project by taking this ser
    ```
 3. Compile the source code using a Python compiler (e.g., GCC):
    ```bash
-   gcc -o Delivery-and-Trading-System-App makeiteasy.py
+   gcc -o Delivery-and-Trading-System-App makeiteasy.c
    ```
 4. Run the application:
    ```bash
@@ -55,3 +55,9 @@ This is a teamwork project and we have developed this project by taking this ser
 - [Çağrı Komaç](https://github.com/abdulsametkoccaga) - B2305.090211
 - [Fatih Savran](https://github.com/BedirhanDincer1) - B2305.090143
 - [Nursallah Soysal](https://github.com/ErdemDogan55) - B2305.090133
+
+- ## Technic Parts of App
+- **Programming Language**: C
+- **Version Control**: Git and GitHub
+- **Compilers and DevTools**: GCC (GNU Compiler Collection), Code Blocks
+  
