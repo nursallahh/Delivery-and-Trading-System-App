@@ -20,7 +20,7 @@ This is a teamwork project and we have developed this project by taking this ser
 ## Installation Process
 1. Clone the repository from GitHub:
    ```bash
-   git clone https://github.com/YunuSezer/Calendar-App
+   git clone https://github.com/nursallahh/Delivery-and-Trading-System-App
    ```
 2. Navigate to the project directory:
    ```bash
