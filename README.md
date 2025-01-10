@@ -24,15 +24,31 @@ This is a teamwork project and we have developed this project by taking this ser
    ```
 2. Navigate to the project directory:
    ```bash
-   cd calendar-app
+   cd Delivery-and-Trading-System-App
    ```
 3. Compile the source code using a Python compiler (e.g., GCC):
    ```bash
-   gcc -o  makeiteasy.py
+   gcc -o Delivery-and-Trading-System-App makeiteasy.py
    ```
 4. Run the application:
    ```bash
-   ./calendar_app
+   ./Delivery-and-Trading-System-App
+
+> [!NOTE]  
+> The above process is provide a simple way of running that app however we are supposed to you are using Windows.
+
+ ## Quick Guidelines
+- **Online Shop**: Add a new event by specifying the date, time, and description.
+- **Trading System**: View the calendar for a specific month, along with listed events.
+- **Real-Time Check**: Configure a reminder for an event to get notified at the specified time.
+- **Discount Notification**: Update or remove existing events from the schedule.
+- **Languages**:
+- **Technical Support**:
+- **Cancel Anytime/Refund**:
+- **Chat**:
+- **Top Ratings**:
+- **Customizable Interface**:
+- Follow the on-screen instructions in the application interface to navigate the app.
 
 
 ## Team Members
