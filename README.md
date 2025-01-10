@@ -17,6 +17,22 @@ This is a teamwork project and we have developed this project by taking this ser
 
 [Click here for the pdf file explaining our project in more detail.](https://github.com/YunuSezer/Calendar-App/blob/main/calender_reminder_app.pdf)
 
+## Installation Process
+1. Clone the repository from GitHub:
+   ```bash
+   git clone https://github.com/YunuSezer/Calendar-App
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd calendar-app
+   ```
+3. Compile the source code using a Python compiler (e.g., GCC):
+   ```bash
+   gcc -o  makeiteasy.py
+   ```
+4. Run the application:
+   ```bash
+   ./calendar_app
 
 
 ## Team Members
