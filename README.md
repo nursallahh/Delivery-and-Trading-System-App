@@ -22,4 +22,4 @@ This is a teamwork project and we have developed this project by taking this ser
 ## Team Members
 - [Çağrı Komaç](https://github.com/abdulsametkoccaga) - B2305.090211
 - [Fatih Savran](https://github.com/BedirhanDincer1) - B2305.090143
-- [Nursallah Soysal](https://github.com/ErdemDogan55) - B2405.090133
+- [Nursallah Soysal](https://github.com/ErdemDogan55) - B2305.090133
