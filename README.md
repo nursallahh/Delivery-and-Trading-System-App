@@ -26,9 +26,9 @@ This is a teamwork project, and we have developed it by taking it seriously, eve
    ```bash
    cd Delivery-and-Trading-System-App
    ```
-3. Compile the source code using a Python compiler (e.g., python3):
+3. Compile the source code using a C compiler (e.g., GCC):
    ```bash
-   python3 -o Delivery-and-Trading-System-App makeiteasy.py
+   gcc -o Delivery-and-Trading-System-App makeiteasy.c
    ```
 4. Run the application:
    ```bash
@@ -57,8 +57,8 @@ This is a teamwork project, and we have developed it by taking it seriously, eve
 - [Nursallah Soysal](https://github.com/nursallahh) - B2305.090133
 
 ## Technic Parts of App
-- **Programming Language**: Python
+- **Programming Language**: C
 - **Version Control**: Git and GitHub
-- **Compilers and DevTools**: Python3 (Python Compiler Collection), Code Blocks
+- **Compilers and DevTools**: GCC (GNU Compiler), Visual Code Studio , Claude
   
 ## Following Patch Improvements
