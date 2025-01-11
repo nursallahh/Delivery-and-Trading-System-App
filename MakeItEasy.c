@@ -28,6 +28,7 @@ typedef struct {
     int daily_sales;
     double rating;
     int rating_count;
+    int successful_deliveries; 
 } Product;
 
 typedef struct {
@@ -51,7 +52,7 @@ int user_count = 0, product_count = 0, trade_count = 0, chat_count = 0;
 
 User current_user = {"guest", "password", "en", 100.0, {""}, 0};
 
-// Yardımcı fonksiyon bildirimleri
+
 void list_products(void);
 int prompt_continue(void);
 
@@ -75,12 +76,9 @@ void initialize_users() {
 }
 
 void initialize_products() {
-    // Ürün örnekleri aynı kalacak, sadece ürün sayısını kontrol edelim
-    // ... (mevcut ürün initializations kodu)
     product_count = 11;
 }
 
-// Eksik olan yardımcı fonksiyon
 int prompt_continue() {
     printf("\nPress 1 to continue: ");
     int choice;
@@ -277,7 +275,7 @@ void chat_system() {
     fgets(username, sizeof(username), stdin);
     username[strcspn(username, "\n")] = 0;
 
-    // Kullanıcı kontrolü
+    
     int valid_user = 0;
     for (int i = 0; i < user_count; i++) {
         if (strcmp(users[i].username, username) == 0) {
@@ -388,7 +386,7 @@ void main_menu() {
         int choice;
         if (scanf("%d", &choice) != 1) {
             printf("Invalid input!\n");
-            while (getchar() != '\n'); // Buffer temizleme
+            while (getchar() != '\n');
             continue;
         }
 
