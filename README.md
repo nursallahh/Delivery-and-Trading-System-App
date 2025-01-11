@@ -62,3 +62,12 @@ This is a teamwork project, and we have developed it by taking it seriously, eve
 - **Compilers and DevTools**: GCC (GNU Compiler), Visual Code Studio , Claude
   
 ## Following Patch Improvements
+- **Spanish and Italy Language**: Will be added in next patch (1.4)
+- **Bug Fixes**: Rarely closing itself
+- **Feedback System**: Feedback from customers
+- **Competetive System**: Customers will gain such points for each buy , sell and trade . That means you will get extra credit to buy new stuffs or discounts .
+
+## Version Releases 
+- **Version 1.0** : In our first prototype we surfed the internet for an appropriate language for our program and we decided to write it on PYTHON, however, this language contains enormous knowledge in it and when we used stackoverflow for our mistakes we solved some of them but mostly we could not and started from over.
+- **Version 2.0** : In the second prototype then again , we used python because we believed python still is the best choice and we iron out same consiquences again.
+- **Version 3.0** : In the third prototype and last release we chose the C programming language which we are used to use. The same process with solving problems by stackoverflow using , functions and libraries is remained but we finally satisfied with that last release.
