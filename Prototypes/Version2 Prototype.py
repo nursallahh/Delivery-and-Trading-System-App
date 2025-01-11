@@ -1,34 +1,22 @@
 import tkinter as tk
-from tkinter import ttk, messagebox, filedialog
+from tkinter import ttk, messagebox
 import os
 
-# Kullanıcı verilerini ve ürünleri depolamak için basit bir dosya tabanlı sistem
-users_file = "users.txt"
-products_file = "products.txt"
+# Kullanıcı verilerini depolamak için basit bir dosya tabanlı sistem
+data_file = "users.txt"
 
 def load_users():
-    if not os.path.exists(users_file):
-        with open(users_file, "w") as f:
+    if not os.path.exists(data_file):
+        with open(data_file, "w") as f:
             pass
-    with open(users_file, "r") as f:
-        return {line.strip().split(":")[0]: line.strip().split(":") for line in f if line.strip()}
+    with open(data_file, "r") as f:
+        return {line.strip().split(":")[0]: line.strip().split(":")[1:]
+ for line in f if line.strip()}
 
 def save_user(username, password, language):
-    with open(users_file, "a") as f:
+    with open(data_file, "a") as f:
         f.write(f"{username}:{password}:{language}\n")
 
-def load_products():
-    if not os.path.exists(products_file):
-        with open(products_file, "w") as f:
-            pass
-    with open(products_file, "r") as f:
-        return [line.strip().split(":") for line in f if line.strip()]
-
-def save_product(product_name, product_price, product_image, seller):
-    with open(products_file, "a") as f:
-        f.write(f"{product_name}:{product_price}:{product_image}:{seller}\n")
-
-# Dil çevirilerini almak için yardımcı fonksiyon
 def get_translations(language):
     translations = {
         "en": {
@@ -141,18 +129,22 @@ class LoginScreen(tk.Tk):
     def init_ui(self):
         ttk.Label(self, text=self.translations["welcome"], font=("Arial", 14)).pack(pady=10)
 
+        # Dil seçimi
         ttk.Label(self, text=self.translations["language"]).pack(pady=5)
         lang_menu = ttk.OptionMenu(self, self.language, self.language.get(), "en", "tr", "ko", command=self.update_language)
         lang_menu.pack(pady=5)
 
+        # Kullanıcı adı
         ttk.Label(self, text=self.translations["username"]).pack(pady=5)
         self.username_entry = ttk.Entry(self)
         self.username_entry.pack(pady=5)
 
+        # Şifre
         ttk.Label(self, text=self.translations["password"]).pack(pady=5)
         self.password_entry = ttk.Entry(self, show="*")
         self.password_entry.pack(pady=5)
 
+        # Giriş ve Kayıt düğmeleri
         login_button = ttk.Button(self, text=self.translations["login"], command=self.login)
         login_button.pack(pady=5)
 
@@ -177,7 +169,7 @@ class LoginScreen(tk.Tk):
         if username in users and users[username][0] == password:
             messagebox.showinfo(self.translations["login_success"], self.translations["login_success"])
             self.destroy()
-            app = DeliveryTradingApp(username)
+            app = DeliveryTradingApp(self.language.get())
             app.mainloop()
         else:
             messagebox.showerror(self.translations["login_failed"], self.translations["login_failed"])
@@ -198,102 +190,90 @@ class LoginScreen(tk.Tk):
 
 # Ana uygulama penceresi
 class DeliveryTradingApp(tk.Tk):
-    def __init__(self, username):
+    def __init__(self, language):
         super().__init__()
 
-        self.username = username
-        self.language = "en"
-        self.translations = get_translations(self.language)
+        self.language = tk.StringVar(value=language)
+        self.translations = get_translations(self.language.get())
+        self.title("Delivery and Trading System - Make It Easy")
         self.geometry("800x600")
         center_window(self)
 
-        self.title("Delivery and Trading System")
         self.init_ui()
 
     def init_ui(self):
+        # Menü çubuğu
         menu_bar = tk.Menu(self)
         self.config(menu=menu_bar)
 
-        shop_menu = tk.Menu(menu_bar, tearoff=0)
-        menu_bar.add_cascade(label=self.translations["menu_settings"], menu=shop_menu)
-        shop_menu.add_command(label=self.translations["online_shop"], command=self.open_online_shop)
-        shop_menu.add_separator()
-        shop_menu.add_command(label=self.translations["menu_exit"], command=self.quit)
+        # Dil seçimi
+        lang_menu = tk.Menu(menu_bar, tearoff=0)
+        menu_bar.add_cascade(label=self.translations["language"], menu=lang_menu)
+        lang_menu.add_command(label="English", command=lambda: self.update_language("en"))
+        lang_menu.add_command(label="Türkçe", command=lambda: self.update_language("tr"))
+        lang_menu.add_command(label="한국어", command=lambda: self.update_language("ko"))
 
-        ttk.Label(self, text=f"Welcome, {self.username}!", font=("Arial", 18)).pack(pady=20)
+        # Menü seçenekleri
+        app_menu = tk.Menu(menu_bar, tearoff=0)
+        menu_bar.add_cascade(label=self.translations["menu_settings"], menu=app_menu)
+        app_menu.add_command(label=self.translations["menu_help"], command=self.show_help)
+        app_menu.add_separator()
+        app_menu.add_command(label=self.translations["menu_exit"], command=self.quit)
 
-    def open_online_shop(self):
-        OnlineShop(self.username).grab_set()
+        # Ana menü düğmeleri
+        buttons_frame = ttk.Frame(self, padding="10")
+        buttons_frame.pack(expand=True)
 
-# Online Shopping arayüzü
-class OnlineShop(tk.Toplevel):
-    def __init__(self, username):
-        super().__init__()
+        ttk.Label(buttons_frame, text=self.translations["app_welcome"], font=("Arial", 18)).pack(pady=10)
 
-        self.username = username
-        self.geometry("600x600")
-        center_window(self)
+        self.add_button(buttons_frame, self.translations["online_shop"], self.open_online_shop)
+        self.add_button(buttons_frame, self.translations["trading_system"], self.open_trading_system)
+        self.add_button(buttons_frame, self.translations["real_time_tracking"], self.open_tracking_system)
+        self.add_button(buttons_frame, self.translations["discount_notifications"], self.open_discount_notifications)
+        self.add_button(buttons_frame, self.translations["chat_system"], self.open_chat_system)
+        self.add_button(buttons_frame, self.translations["ratings"], self.open_ratings)
+        self.add_button(buttons_frame, self.translations["customize_interface"], self.open_customize_interface)
 
-        self.title("Online Shop")
-        self.products = load_products()
+    def add_button(self, frame, text, command):
+        ttk.Button(frame, text=text, command=command, width=30).pack(pady=5)
+
+    def update_language(self, lang):
+        self.language.set(lang)
+
+        self.translations = get_translations(lang)
+
+        self.refresh_ui()
+
+    def refresh_ui(self):
+        for widget in self.winfo_children():
+            widget.destroy()
         self.init_ui()
 
-    def init_ui(self):
-        add_frame = ttk.LabelFrame(self, text="Add Product", padding="10")
-        add_frame.pack(fill="x", padx=10, pady=5)
+    # Placeholder methods for functionalities
+    def open_online_shop(self):
+        messagebox.showinfo(self.translations["online_shop"], self.translations["feature_under_construction"])
 
-        ttk.Label(add_frame, text="Product Name:").grid(row=0, column=0, pady=5, sticky="w")
-        self.product_name_entry = ttk.Entry(add_frame)
-        self.product_name_entry.grid(row=0, column=1, pady=5)
+    def open_trading_system(self):
+        messagebox.showinfo(self.translations["trading_system"], self.translations["feature_under_construction"])
 
-        ttk.Label(add_frame, text="Product Price:").grid(row=1, column=0, pady=5, sticky="w")
-        self.product_price_entry = ttk.Entry(add_frame)
-        self.product_price_entry.grid(row=1, column=1, pady=5)
+    def open_tracking_system(self):
+        messagebox.showinfo(self.translations["real_time_tracking"], self.translations["feature_under_construction"])
 
-        ttk.Label(add_frame, text="Product Image:").grid(row=2, column=0, pady=5, sticky="w")
-        self.product_image_path = tk.StringVar()
-        self.product_image_entry = ttk.Entry(add_frame, textvariable=self.product_image_path, state="readonly")
-        self.product_image_entry.grid(row=2, column=1, pady=5)
+    def open_discount_notifications(self):
+        messagebox.showinfo(self.translations["discount_notifications"], self.translations["feature_under_construction"])
 
-        select_image_button = ttk.Button(add_frame, text="Select Image", command=self.select_image)
-        select_image_button.grid(row=2, column=2, pady=5, padx=5)
+    def open_chat_system(self):
+        messagebox.showinfo(self.translations["chat_system"], self.translations["feature_under_construction"])
 
-        add_product_button = ttk.Button(add_frame, text="Add Product", command=self.add_product)
-        add_product_button.grid(row=3, column=1, pady=10)
+    def open_ratings(self):
+        messagebox.showinfo(self.translations["ratings"], self.translations["feature_under_construction"])
 
-        self.product_list = ttk.Treeview(self, columns=("Name", "Price", "Seller"), show="headings")
-        self.product_list.heading("Name", text="Product Name")
-        self.product_list.heading("Price", text="Price")
-        self.product_list.heading("Seller", text="Seller")
-        self.product_list.pack(fill="both", expand=True, padx=10, pady=5)
+    def open_customize_interface(self):
+        messagebox.showinfo(self.translations["customize_interface"], self.translations["feature_under_construction"])
 
-        self.load_products_to_list()
-
-    def select_image(self):
-        file_path = filedialog.askopenfilename(filetypes=[("Image Files", "*.png;*.jpg;*.jpeg")])
-        if file_path:
-            self.product_image_path.set(file_path)
-
-    def add_product(self):
-        product_name = self.product_name_entry.get()
-        product_price = self.product_price_entry.get()
-        product_image = self.product_image_path.get()
-
-        if not product_name or not product_price or not product_image:
-            messagebox.showerror("Error", "All fields are required!")
-            return
-
-        save_product(product_name, product_price, product_image, self.username)
-        self.products.append([product_name, product_price, product_image, self.username])
-        self.load_products_to_list()
-        messagebox.showinfo("Success", "Product added successfully!")
-
-    def load_products_to_list(self):
-        for row in self.product_list.get_children():
-            self.product_list.delete(row)
-
-        for product in self.products:
-            self.product_list.insert("", "end", values=(product[0], product[1], product[3]))
+    def show_help(self):
+        messagebox.showinfo(self.translations["menu_help"], "This is a placeholder for the Help menu.")
 
 if __name__ == "__main__":
-    LoginScreen().mainloop()
+    login_screen = LoginScreen()
+    login_screen.mainloop()
