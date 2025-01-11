@@ -52,9 +52,9 @@ This is a teamwork project, and we have developed it by taking it seriously, eve
 
 
 ## Team Members
-- [Çağrı Komaç](https://github.com/nursallahh) - B2305.090211
+- [Çağrı Komaç](https://github.com/cagri-1) - B2305.090211
 - [Fatih Savran](https://github.com/FatihSavran) - B2305.090143
-- [Nursallah Soysal](https://github.com/cagri-1) - B2305.090133
+- [Nursallah Soysal](https://github.com/nursallahh) - B2305.090133
 
 - ## Technic Parts of App
 - **Programming Language**: Python
