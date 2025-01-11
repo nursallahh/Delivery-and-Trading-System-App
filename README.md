@@ -46,8 +46,8 @@ This is a teamwork project, and we have developed it by taking it seriously, eve
 - **Technical Support**: There will be 7/24 technical support for customers.
 - **Cancel Anytime/Refund**: Our policy on the cancel anytime/refund section is precised.
 - **Chat**: Chat system that stores your messages between customers and other producers where you can communicate with users.
-- **Top Ratings**:
-- **Customizable Interface**:
+- **Top Ratings**: Rating system demonstrates best producers of week/month/year.
+- **Customizable Interface**: Users can customize their application within their priorities such as dark/white theme, pinned messages and stuffs , profile section etc.
 - Follow the on-screen instructions in the application interface to navigate the app.
 
 
@@ -60,4 +60,5 @@ This is a teamwork project, and we have developed it by taking it seriously, eve
 - **Programming Language**: Python
 - **Version Control**: Git and GitHub
 - **Compilers and DevTools**: Python3 (Python Compiler Collection), Code Blocks
-  
+
+ - ## Following Patch Improvements
