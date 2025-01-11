@@ -15,7 +15,7 @@ Our application provides these features; Creating and managing your shop online,
 
 This is a teamwork project, and we have developed it by taking it seriously, even though it was the Introduction to Software Engineering course. 
 
-[Click here for the pdf file explaining our project in more detail.](https://github.com/YunuSezer/Calendar-App/blob/main/calender_reminder_app.pdf)
+[Click here for the pdf file explaining our project in more detail.](https://github.com/nursallahh/Delivery-and-Trading-System-App/blob/MakeItEasy/Delivery%20and%20Trading%20System.pdf)
 
 ## Installation Process
 1. Clone the repository from GitHub:
