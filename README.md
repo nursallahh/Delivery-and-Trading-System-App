@@ -45,7 +45,7 @@ This is a teamwork project, and we have developed it by taking it seriously, eve
 - **Languages**: Diverse language choices in the application that allows you to surf in your native language. (Turkish, English, Korean) on second patch=>(Spanish,Italian etc.)
 - **Technical Support**: There will be 7/24 technical support for customers.
 - **Cancel Anytime/Refund**: Our policy on the cancel anytime/refund section is precised.
-- **Chat**: 
+- **Chat**: Chat system that stores your messages between customers and other producers where you can communicate with users.
 - **Top Ratings**:
 - **Customizable Interface**:
 - Follow the on-screen instructions in the application interface to navigate the app.
