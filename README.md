@@ -7,7 +7,7 @@
 ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝    ╚═╝   ╚═╝       ╚══════╝╚═╝  ╚═╝╚══════╝   ╚═╝ 
 ```
 # Delivery and Trading System 
-
+ 
 ## Description of Project
 The **Make It Easy** is focused on the essential part of delivering, marketing and trading systems however the lack of these properties in the industry we decided to create a simple, easy access, utility, multi-tasking application. It is designed to help users sell their own product, trade with other customers and undertake the delivery parts with %100 trust.
 
