@@ -56,9 +56,9 @@ This is a teamwork project, and we have developed it by taking it seriously, eve
 - [Fatih Savran](https://github.com/FatihSavran) - B2305.090143
 - [Nursallah Soysal](https://github.com/nursallahh) - B2305.090133
 
-- ## Technic Parts of App
+## Technic Parts of App
 - **Programming Language**: Python
 - **Version Control**: Git and GitHub
 - **Compilers and DevTools**: Python3 (Python Compiler Collection), Code Blocks
-
- - ## Following Patch Improvements
+  
+## Following Patch Improvements
