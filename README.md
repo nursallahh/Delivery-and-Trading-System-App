@@ -44,7 +44,7 @@ This is a teamwork project, and we have developed it by taking it seriously, eve
 - **Discount Notification**: The system that suggests possible demands to you where you have searched on the internet. (With your permission.)
 - **Languages**: Diverse language choices in the application that allows you to surf in your native language. (Turkish, English, Korean) on second patch=>(Spanish,Italian etc.)
 - **Technical Support**: There will be 7/24 technical support for customers.
-- **Cancel Anytime/Refund**: 
+- **Cancel Anytime/Refund**: Our policy on the cancel anytime/refund section is precised.
 - **Chat**: 
 - **Top Ratings**:
 - **Customizable Interface**:
