@@ -57,9 +57,9 @@ This is a teamwork project, and we have developed it by taking it seriously, eve
 - [Nursallah Soysal](https://github.com/nursallahh) - B2305.090133
 
 ## Technic Parts of App
-- **Programming Language**: C
+- **Programming Language**: C , Python
 - **Version Control**: Git and GitHub
-- **Compilers and DevTools**: GCC (GNU Compiler), Visual Code Studio , Claude
+- **Compilers and DevTools**: GCC (GNU Compiler), Visual Code Studio , Claude , Python
   
 ## Following Patch Improvements
 - **Spanish and Italy Language**: Will be added in next patch (1.4)
