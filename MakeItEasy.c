@@ -28,7 +28,7 @@ typedef struct {
     int daily_sales;
     double rating;
     int rating_count;
-    int successful_deliveries; 
+    int successful_deliveries;
 } Product;
 
 typedef struct {
@@ -52,7 +52,7 @@ int user_count = 0, product_count = 0, trade_count = 0, chat_count = 0;
 
 User current_user = {"guest", "password", "en", 100.0, {""}, 0};
 
-
+// Yardımcı fonksiyon bildirimleri
 void list_products(void);
 int prompt_continue(void);
 
@@ -76,9 +76,65 @@ void initialize_users() {
 }
 
 void initialize_products() {
-    product_count = 11;
+    // Ürün örnekleri
+    strcpy(products[0].product_name, "Ahşap Masa");
+    products[0].price = 150.0;
+    products[0].stock = 20;
+    strcpy(products[0].seller_name, "Yakup Usta");
+    products[0].daily_sales = 3;
+    products[0].rating = 4.5;
+    products[0].rating_count = 10;
+    products[0].successful_deliveries = 8;
+
+    strcpy(products[1].product_name, "Sandalye");
+    products[1].price = 75.0;
+    products[1].stock = 30;
+    strcpy(products[1].seller_name, "Yakup Usta");
+    products[1].daily_sales = 2;
+    products[1].rating = 4.0;
+    products[1].rating_count = 8;
+    products[1].successful_deliveries = 4;
+
+    strcpy(products[2].product_name, "Ofis Koltuğu");
+    products[2].price = 200.0;
+    products[2].stock = 15;
+    strcpy(products[2].seller_name, "Jason Bellic");
+    products[2].daily_sales = 5;
+    products[2].rating = 4.8;
+    products[2].rating_count = 19;
+    products[2].successful_deliveries = 18;
+
+    strcpy(products[3].product_name, "Kanepe");
+    products[3].price = 500.0;
+    products[3].stock = 10;
+    strcpy(products[3].seller_name, "Jason Bellic");
+    products[3].daily_sales = 7;
+    products[3].rating = 4.7;
+    products[3].rating_count = 17;
+    products[3].successful_deliveries = 12;
+
+    strcpy(products[4].product_name, "Tarım Aletleri");
+    products[4].price = 300.0;
+    products[4].stock = 25;
+    strcpy(products[4].seller_name, "Giuseppe Rivera");
+    products[4].daily_sales = 3;
+    products[4].rating = 4.1;
+    products[4].rating_count = 7;
+    products[4].successful_deliveries = 3;
+
+    strcpy(products[5].product_name, "Masasüstü Bilgisayar");
+    products[5].price = 1250.0;
+    products[5].stock = 1;
+    strcpy(products[5].seller_name, "Chyou Ma");
+    products[5].daily_sales = 1;
+    products[5].rating = 4.7;
+    products[5].rating_count = 15;
+    products[5].successful_deliveries = 2;
+
+    product_count = 6;
 }
 
+// Eksik olan yardımcı fonksiyon
 int prompt_continue() {
     printf("\nPress 1 to continue: ");
     int choice;
@@ -94,7 +150,16 @@ void list_products() {
                products[i].seller_name, products[i].daily_sales, products[i].rating, 
                products[i].rating_count);
     }
+    srand(time(NULL)); // Rastgele sayı üretici başlat
+
+for (int i = 0; i < product_count; i++) {
+    products[i].price = (rand() % 500 + 50) + ((rand() % 100) / 100.0); // Rastgele fiyat $50-$550
+    products[i].stock = rand() % 50 + 1; // Rastgele stok 1-50
+    products[i].rating = ((rand() % 50) + 1) / 10.0; // Rastgele rating 0.1-5.0
 }
+}
+
+
 
 void buy_product() {
     list_products();
@@ -275,7 +340,7 @@ void chat_system() {
     fgets(username, sizeof(username), stdin);
     username[strcspn(username, "\n")] = 0;
 
-    
+    // Kullanıcı kontrolü
     int valid_user = 0;
     for (int i = 0; i < user_count; i++) {
         if (strcmp(users[i].username, username) == 0) {
@@ -386,7 +451,7 @@ void main_menu() {
         int choice;
         if (scanf("%d", &choice) != 1) {
             printf("Invalid input!\n");
-            while (getchar() != '\n');
+            while (getchar() != '\n'); // Buffer temizleme
             continue;
         }
 
